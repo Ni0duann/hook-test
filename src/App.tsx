@@ -1,25 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [num, setNum] = useState(() => {
+    const num1 = 1 + 2;
+    const num2 = 2 + 3;
+    return num1 + num2;
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div onClick={()=>setNum((prevNum => prevNum + 1))}>{num}</div>
   );
 }
 
